@@ -42,15 +42,15 @@ export const Filters: React.FC<Props> = ({ className }) => {
         className="mt-5"
         limit={3}
         defaultItems={[
-          { text: "cheese sauce", value: "11" },
-          { text: "mozzarella", value: "22" },
-          { text: "garlic", value: "33" },
+          { text: "Cheese sauce", value: "11" },
+          { text: "Mozzarella", value: "22" },
+          { text: "Garlic", value: "33" },
         ]}
         items={[
-          { text: "cheese sauce", value: "44" },
-          { text: "mozzarella", value: "55" },
-          { text: "garlic", value: "66" },
-          { text: "Sauce", value: "77" },
+          { text: "Cheese sauce", value: "44" },
+          { text: "Mozzarella", value: "55" },
+          { text: "Garlic", value: "66" },
+          { text: "Sauce Garlic", value: "77" },
         ]}
       />
     </div>
