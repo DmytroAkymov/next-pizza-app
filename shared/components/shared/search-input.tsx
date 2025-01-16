@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Api } from "@/services/api-client";
+import { Api } from "@/shared/services/api-client";
 import { Search } from "lucide-react";
 import Link from "next/link";
 import React from "react";

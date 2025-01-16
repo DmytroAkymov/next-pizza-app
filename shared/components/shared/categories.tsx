@@ -2,7 +2,7 @@
 
 import React from "react";
 import { cn } from "@/lib/utils";
-import { useCategoryStore } from "@/story/category";
+import { useCategoryStore } from "@/shared/story/category";
 import { Category } from "@prisma/client";
 
 interface Props {

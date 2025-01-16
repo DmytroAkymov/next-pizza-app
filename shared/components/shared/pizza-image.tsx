@@ -4,14 +4,10 @@ import React from "react";
 interface Props {
   className?: string;
   imageUrl: string;
-  size: number;
+  size: 20 | 30 | 40;
 }
 
-export const ProductImage: React.FC<Props> = ({
-  imageUrl,
-  size,
-  className,
-}) => {
+export const PizzaImage: React.FC<Props> = ({ imageUrl, size, className }) => {
   return (
     <div
       className={cn(
@@ -31,7 +27,7 @@ export const ProductImage: React.FC<Props> = ({
           }
         )}
       />
-      <div className="absolute border-dashed border-2 rounded-full border-gray-200 w-[490px] h-[490px]" />
+      <div className="absolute border-dashed border-2 rounded-full border-gray-200 w-[450px] h-[450px]" />
       <div className="absolute border-dotted border-2 rounded-full border-gray-100 w-[370px] h-[370px]" />
     </div>
   );
