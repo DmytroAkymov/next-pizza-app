@@ -1,6 +1,10 @@
 "use client";
 
-import { Dialog, DialogContent } from "@/shared/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/shared/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import React from "react";
 import { useRouter } from "next/navigation";
@@ -15,7 +19,7 @@ interface Props {
 
 export const ChooseProductModal: React.FC<Props> = ({ product, className }) => {
   const router = useRouter();
-  const isPizzaForm = Boolean(product.items[0].pizzaType);
+  const isPizzaForm = Boolean(product.items[0]?.pizzaType);
 
   return (
     <Dialog open={Boolean(product)} onOpenChange={() => router.back()}>
@@ -25,11 +29,13 @@ export const ChooseProductModal: React.FC<Props> = ({ product, className }) => {
           className
         )}
       >
+        <DialogTitle className="sr-only">{product.name}</DialogTitle>
         {isPizzaForm ? (
           <ChoosePizzaForm
             imageUrl={product.imageUrl}
             name={product.name}
-            ingredients={[]}
+            ingredients={product.ingredients}
+            items={product.items}
           />
         ) : (
           <ChooseProductForm imageUrl={product.imageUrl} name={product.name} />

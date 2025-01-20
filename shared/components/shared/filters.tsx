@@ -34,7 +34,6 @@ export const Filters: React.FC<Props> = ({ className }) => {
   return (
     <div className={className}>
       <Title text="Filtration" size="sm" className="mb-5 font-bold" />
-
       {/* top checkboxes */}
       <CheckboxFiltersGroup
         title="Pizza Types:"
