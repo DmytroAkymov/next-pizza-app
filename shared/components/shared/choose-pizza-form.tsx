@@ -10,9 +10,10 @@ import { GroupVariants } from "./group-variants";
 import { PizzaSize, PizzaType, pizzaTypes } from "@/shared/constants/pizza";
 import { IngredientItem } from "./ingredient-item";
 
-import { cn } from "@/lib/utils";
-import { getPizzaDetails } from "@/shared/lib/get-pizza-detalis";
+import { cn } from "@/shared/lib/utils";
+
 import { usePizzaOptions } from "@/shared/hooks/use-pizza-options";
+import { getPizzaDetails } from "@/shared/lib";
 
 interface Props {
   imageUrl: string;
