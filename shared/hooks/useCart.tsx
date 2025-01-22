@@ -1,6 +1,6 @@
 import React from "react";
-import { useCartStore } from "../store";
-import { CreateCartItemValues } from "../services/dto/cart.dto";
+import { useCartStore } from "../story";
+import { CreateCartItemValues } from "../services/dto/cart-dto";
 import { CartStateItem } from "../lib/get-cart-details";
 
 type ReturnProps = {

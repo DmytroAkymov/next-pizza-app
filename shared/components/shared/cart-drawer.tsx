@@ -20,15 +20,11 @@ import { PizzaSize, PizzaType } from "@/shared/constants/pizza";
 import { Title } from "./title";
 
 import { cn } from "@/shared/lib/utils";
-// import { useCart } from "@/shared/hooks/useCart";
+import { useCart } from "@/shared/hooks/useCart";
 import { getCartItemDetails } from "@/shared/lib/get-cart-item-details";
 
 export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const totalAmount = 3;
-  const updateItemQuantity = null;
-  const items = [];
-  const removeCartItem = null;
-  //   const { totalAmount, updateItemQuantity, items, removeCartItem } = useCart();
+  const { totalAmount, updateItemQuantity, items, removeCartItem } = useCart();
 
   const [redirecting, setRedirecting] = React.useState(false);
 
@@ -55,7 +51,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
           {totalAmount > 0 && (
             <SheetHeader>
               <SheetTitle>
-                In Cart <span className="font-bold">3 goods </span>
+                In Cart <span className="font-bold">{items.length} goods </span>
               </SheetTitle>
             </SheetHeader>
           )}
@@ -90,28 +86,21 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
           <>
             <div className="-mx-6 mt-5 overflow-auto flex-1">
               <div className="mb-2">
-                <CartDrawerItem
-                  id={1}
-                  imageUrl={
-                    "https://media.dodostatic.net/image/r:233x233/11EE7D61304FAF5A98A6958F2BB2D260.webp"
-                  }
-                  details={getCartItemDetails(
-                    [
-                      { name: "Pizza", price: 10 },
-                      { name: "Burger", price: 15 },
-                    ],
-                    1,
-                    30
-                  )}
-                  //   disabled={item.disabled}
-                  name={"Pepperoni fresh"}
-                  price={7}
-                  quantity={1}
-                  //   onClickCountButton={(type) =>
-                  //     onClickCountButton(item.id, item.quantity, type)
-                  //   }
-                  //   onClickRemove={() => removeCartItem(item.id)}
-                />
+                {items.map((item) => (
+                  <CartDrawerItem
+                    key={item.id}
+                    id={item.id}
+                    imageUrl={item.imageUrl}
+                    details={getCartItemDetails(
+                      item.ingredients,
+                      item.pizzaType as PizzaType,
+                      item.pizzaSize as PizzaSize
+                    )}
+                    name={item.name}
+                    price={item.price}
+                    quantity={item.quantity}
+                  />
+                ))}
               </div>
             </div>
 
