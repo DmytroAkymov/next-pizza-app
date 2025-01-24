@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { Api } from "../services/api-client";
 import { getCartDetails } from "../lib/get-cart-details";
+import { CreateCartItemValues } from "../services/dto/cart-dto";
 
 export type CartStateItem = {
   id: number;
