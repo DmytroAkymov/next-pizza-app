@@ -66,7 +66,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
               />
               <Title
                 size="sm"
-                text="Корзина пустая"
+                text="Cart is empty"
                 className="text-center font-bold my-2"
               />
               <p className="text-center text-neutral-500 mb-5">
@@ -85,10 +85,9 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
           {totalAmount > 0 && (
             <>
               <div className="-mx-6 mt-5 overflow-auto flex-1">
-                <div className="mb-2">
-                  {items.map((item) => (
+                {items.map((item) => (
+                  <div key={item.id} className="mb-2">
                     <CartDrawerItem
-                      key={item.id}
                       id={item.id}
                       imageUrl={item.imageUrl}
                       details={getCartItemDetails(
@@ -104,8 +103,8 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
                       }
                       onClickRemove={() => removeCartItem(item.id)}
                     />
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
 
               <SheetFooter className="-mx-6 bg-white p-8">
@@ -122,7 +121,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
                   <Link href="/checkout">
                     <Button
                       onClick={() => setRedirecting(true)}
-                      // loading={redirecting}
+                      loading={redirecting}
                       type="submit"
                       className="w-full h-12 text-base"
                     >

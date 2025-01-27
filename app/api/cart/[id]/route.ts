@@ -1,5 +1,5 @@
 import { prisma } from "@/prisma/prisma-client";
-import { updataCartTotalAmount } from "@/shared/lib/update-cart-total-amount";
+import { updateCartTotalAmount } from "@/shared/lib/update-cart-total-amount";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function PATCH(
@@ -31,7 +31,7 @@ export async function PATCH(
       },
     });
 
-    const updateUserCart = await updataCartTotalAmount(token);
+    const updateUserCart = await updateCartTotalAmount(token);
     return NextResponse.json(updateUserCart);
   } catch (error) {
     console.log("[CART_PATCH] Server error", error);
@@ -70,7 +70,7 @@ export async function DELETE(
       },
     });
 
-    const updateUserCart = await updataCartTotalAmount(token);
+    const updateUserCart = await updateCartTotalAmount(token);
     return NextResponse.json(updateUserCart);
   } catch (error) {
     console.log("[CART_DELETE] Server error", error);

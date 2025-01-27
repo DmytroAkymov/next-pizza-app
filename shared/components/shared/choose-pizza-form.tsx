@@ -26,7 +26,7 @@ interface Props {
 }
 
 /**
- * PIZZA selection form
+ * PIZZA form
  */
 export const ChoosePizzaForm: React.FC<Props> = ({
   name,
