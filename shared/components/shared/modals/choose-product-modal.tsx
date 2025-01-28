@@ -12,7 +12,8 @@ import { ChooseProductForm } from "../choose-product-form";
 import { ProductWithRelations } from "@/@types/prisma";
 import { ChoosePizzaForm } from "../choose-pizza-form";
 import { useCartStore } from "@/shared/story";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 interface Props {
   product: ProductWithRelations;
@@ -51,6 +52,7 @@ export const ChooseProductModal: React.FC<Props> = ({ product, className }) => {
         )}
       >
         <DialogTitle className="sr-only">{product.name}</DialogTitle>
+
         {isPizzaForm ? (
           <ChoosePizzaForm
             imageUrl={product.imageUrl}
