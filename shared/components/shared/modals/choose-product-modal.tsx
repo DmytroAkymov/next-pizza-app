@@ -51,7 +51,10 @@ export const ChooseProductModal: React.FC<Props> = ({ product, className }) => {
           className
         )}
       >
-        <DialogTitle className="sr-only">{product.name}</DialogTitle>
+        {/* Use VisuallyHidden to hide the title from visual UI but keep it accessible */}
+        <VisuallyHidden>
+          <DialogTitle className="sr-only">{product.name}</DialogTitle>
+        </VisuallyHidden>
 
         {isPizzaForm ? (
           <ChoosePizzaForm

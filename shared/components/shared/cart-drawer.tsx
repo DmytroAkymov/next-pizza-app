@@ -74,10 +74,21 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
               </p>
 
               <SheetClose>
-                <Button className="w-56 h-12 text-base" size="lg">
+                <Button
+                  asChild // Using asChild to avoid nested button
+                  className="w-56 h-12 text-base"
+                  size="lg"
+                >
+                  {/* Instead of using Button, use a custom element to avoid nesting */}
+                  <div className="inline-flex items-center justify-center">
+                    <ArrowLeft className="w-5 mr-2" />
+                    Go back
+                  </div>
+                </Button>
+                {/* <Button className="w-56 h-12 text-base" size="lg">
                   <ArrowLeft className="w-5 mr-2" />
                   Go back
-                </Button>
+                </Button> */}
               </SheetClose>
             </div>
           )}
